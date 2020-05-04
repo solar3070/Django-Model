@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            @font-face {font-family: 'MapoFlowerIsland';src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/MapoFlowerIslandA.woff') format('woff');font-weight: normal;font-style: normal; }
+
+            h1 {
+                font-size: 50px;
+                text-align: center;
+                border-bottom: 1px solid grey;
+                margin: 0;
+                padding: 40px;
+            }
+            #grid {
+                font-family: 'MapoFlowerIsland';
+                display: flex;
+                text-align: center;
+                border-bottom: 1px solid grey;
+            }
+            #title, #date, #body {
+                width: 200px;
+                height: 100px;
+                padding: 20px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            #body {
+                flex-grow:1;
+            }
+            #grid :hover {
+                background-color: rgb(243, 243, 243);
+            }
+            
+        </style>
+        <title>Blog</title>
+    </head>
+    <body>
+        <header>
+            <h1>Blog</h1>
+        </header>
+        {% for blog in blogs.all %}
+            <div id="grid">
+                <div id="title">
+                    {{ blog.title }}
+                </div>
+                <div id="date">
+                    {{ blog.pub_date }}
+                </div>
+                <div id="body">
+                    {{ blog.body }}
+                </div>
+                <br>
+            </div>
+        {% endfor %}
+    </body>
+</html>
+
